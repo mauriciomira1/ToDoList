@@ -7,7 +7,7 @@ const ButtonDelete = () => {
   return (
     <Feather
       name="trash-2"
-      size={24}
+      size={18}
       color="black"
       style={styles.buttonDelete}
     />

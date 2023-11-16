@@ -3,6 +3,8 @@ import { View, Text } from "react-native";
 import Logotipo from "../../components/logotipo/Logotipo";
 import NewTask from "../../components/newTask/NewTask";
 import { styles } from "./styles";
+import WithoutTasks from "../../components/withoutTasks/WithoutTasks";
+import Task from "../../components/task/Task";
 
 const Home = () => {
   return (
@@ -23,6 +25,10 @@ const Home = () => {
             <Text style={styles.badgeCounter}>0</Text>
           </View>
         </View>
+        {/* <WithoutTasks /> */}
+        <Task />
+        <Task />
+        <Task />
       </View>
     </View>
   );
