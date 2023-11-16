@@ -1,17 +1,31 @@
 import { StatusBar } from "expo-status-bar";
 import { StyleSheet, View } from "react-native";
-import Checkbox from "./src/components/checkbox/CheckboxTask";
 import React from "react";
-import ButtonDelete from "./src/components/buttons/ButtonDelete";
-import ButtonCreate from "./src/components/buttons/ButtonCreate";
+import Home from "./src/screens/Home";
+import {
+  useFonts,
+  Inter_900Black,
+  Inter_700Bold,
+  Inter_400Regular,
+  Inter_300Light,
+} from "@expo-google-fonts/inter";
 
 export default function App() {
+  const [fontsLoaded, fontError] = useFonts({
+    Inter_900Black,
+    Inter_700Bold,
+    Inter_400Regular,
+    Inter_300Light,
+  });
+
+  if (!fontsLoaded && !fontError) {
+    return null;
+  }
+
   return (
     <View style={styles.container}>
-      <Checkbox />
-      <ButtonDelete />
-      <ButtonCreate />
-      <StatusBar style="auto" />
+      <Home />
+      <StatusBar style="inverted" translucent backgroundColor="#0F0F0F" />
     </View>
   );
 }
