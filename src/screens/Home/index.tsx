@@ -33,12 +33,10 @@ const Home = () => {
         done: false,
       },
     ]);
-    console.log(tasks);
   };
 
   const handleDelete = (id: string) => {
     setTasks(tasks.filter((task) => task.id !== id));
-    console.log(tasks);
   };
 
   const handleToogle = (id: string) => {
@@ -72,7 +70,6 @@ const Home = () => {
 
         <FlatList
           data={tasks}
-          keyExtractor={(item) => item.id}
           renderItem={({ item }) => (
             <Task
               id={item.id}
@@ -82,8 +79,23 @@ const Home = () => {
               handleToogle={() => handleToogle(item.id)}
             />
           )}
+          keyExtractor={(item) => item.id}
           ListEmptyComponent={() => <WithoutTasks />}
         />
+        {/*         <FlatList
+          data={tasks}
+          renderItem={({ item }) => (
+            <Task
+              id={item.id}
+              description={item.description}
+              key={item.id}
+              handleDelete={() => handleDelete(item.id)}
+              handleToogle={() => handleToogle(item.id)}
+            />
+          )}
+          keyExtractor={(item) => item.id}
+          ListEmptyComponent={() => <WithoutTasks />}
+        /> */}
 
         {/* {tasks.length > 0 ? (
           tasks.map((task) => (

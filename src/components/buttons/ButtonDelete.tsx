@@ -10,7 +10,7 @@ const ButtonDelete = ({ handleDelete }: ButtonDeleteProps) => {
   return (
     <Feather
       name="trash-2"
-      size={18}
+      size={20}
       color="black"
       style={styles.buttonDelete}
       onPress={handleDelete}
