@@ -1,17 +1,31 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { styles } from "./styles";
 import { View, Text } from "react-native";
 import CheckboxTask from "../checkbox/CheckboxTask";
 import ButtonDelete from "../buttons/ButtonDelete";
 
-const Task = () => {
+interface TaskProps {
+  description: string;
+  id: string;
+  handleDelete: (id: string) => void;
+  handleToogle: (id: string) => void;
+}
+
+const Task = ({ description, id, handleDelete, handleToogle }: TaskProps) => {
+  const [taskDone, setTaskDone] = useState(false);
+
+  const changeTaskState = (state: boolean) => {
+    setTaskDone(state);
+    handleToogle(id);
+  };
+
   return (
     <View style={styles.container}>
-      <CheckboxTask />
-      <Text style={styles.description}>
-        Integer urna interdum massa libero auctor neque turpis turpis semper.
+      <CheckboxTask functionToSetTask={changeTaskState} />
+      <Text style={taskDone ? styles.descriptionDone : styles.description}>
+        {description}
       </Text>
-      <ButtonDelete />
+      <ButtonDelete handleDelete={() => handleDelete(id)} />
     </View>
   );
 };

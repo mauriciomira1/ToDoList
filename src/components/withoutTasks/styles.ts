@@ -5,7 +5,7 @@ export const styles = StyleSheet.create({
     alignItems: "center",
   },
   informationArea: {
-    paddingTop: 30,
+    paddingTop: 50,
     gap: 2,
     width: "100%",
     alignItems: "center",
